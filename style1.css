@@ -1,0 +1,294 @@
+:root{
+    --brown: #4a2c0a;
+    --light-brown:#8b5e3c;
+    --cream:#fdf6ec;
+    --accent:#d4a96a;
+    --white:#ffffff;
+    --text:#333333;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'lato',sans-serif;
+    color:var(--text);
+    background-color:var(--cream);
+}
+nav {
+  background-color: var(--brown);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: var(--accent);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+/* LINKS - the <a> tag */
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+.hero {
+/* BACKGROUND properties */
+background-image:
+url('https://wallpapercave.com/wp/wp1879447.jpg');
+background-size: cover;
+/* fills the whole area */
+background-position:center;
+/ keeps the image centred */
+background-attachment:fixed;
+/* subtle parallax effect */
+/* DISPLAY make it a flex container to centre the text */
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+height:100vh;
+/* 100% of the viewport height */
+padding:20px;
+/* dark overlay so text is readable */
+background-color:rgba(0,0,0,0.55);
+background-blend-mode:multiply;
+color: aliceblue;
+}
+@keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);  /* start 40px below */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);     /* end at normal position */
+      }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 5rem);  /* responsive font size */
+      color: var(--white);
+      animation: fadeUp 1s ease forwards;   /* apply the animation */
+    }
+
+    .hero p {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin: 16px 0 30px;
+      animation: fadeUp 1s ease 0.3s forwards;  /* 0.3s delay */
+      opacity: 0;   /* starts hidden; animation will reveal it */
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--brown);
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+      animation: fadeUp 1s ease 0.6s forwards;
+      opacity: 0;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--white);
+      transform: scale(1.05);   /* slightly enlarges on hover */
+    }
+
+    /* =============================================
+       SECTION WRAPPER — reusable centred container
+    ============================================= */
+    section {
+      padding: 80px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--brown);
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--light-brown);
+      margin-bottom: 50px;
+      font-size: 1rem;
+    }
+#about {
+      background-color: var(--white);
+    }
+
+    .about-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;          /* FLEX: side by side */
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 16px;
+      flex: 1;                /* FLEX: each side takes equal space */
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--brown);
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      line-height: 1.8;
+      color: #555;
+    }
+    #menu {
+      background-color: var(--cream);
+    }
+
+    .menu-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;    /* FLEX: cards wrap to next row if no space */
+      gap: 24px;
+      justify-content: center;
+    }
+
+    /* ANIMATION: spinning coffee cup icon */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .menu-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 30px 24px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);           /* lifts the card up */
+      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+    }
+
+    .menu-card:hover .card-icon {
+      animation: spin 1s linear infinite;    /* spin on hover */
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .menu-card h3 {
+      color: var(--brown);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .menu-card p {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .i{
+      display: flex;
+      justify-content: space-around;
+      gap:10px;
+
+    }
+    .images{
+    display: flex;
+      justify-content: space-around;
+      gap:10px;
+    }
+    
+    .i img,
+.images img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+/* 🔥 POP effect on hover */
+.i img:hover,
+.images img:hover {
+  transform: scale(1.15) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  z-index: 10;
+}.i:hover img,
+.images:hover img {
+  opacity: 0.7;
+  transform: scale(0.95);
+  transition: 0.4s ease;
+}
+
+/* keep hovered image strong */
+.i img:hover,
+.images img:hover {
+  opacity: 1;
+  transform: scale(1.15) translateY(-10px);
+}
+form{
+   background: var(--white);
+      border-radius: 16px;
+  width: 300px;
+margin-left: 500px;
+}
+.about-img:hover{
+  transform: scale(1.15) translateY(-10px);
+   box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  z-index: 10;
+}
+#gallery{
+  background-color: white;
+}
